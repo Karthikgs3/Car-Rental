@@ -1,32 +1,9 @@
--- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
-
--- Host: 127.0.0.1
--- Generation Time: Oct 22, 2020 at 04:21 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.28
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `car_rental_db`
---
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `books`
---
 
 CREATE TABLE `books` (
   `id` int(30) NOT NULL,
@@ -42,18 +19,16 @@ CREATE TABLE `books` (
   `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '0= cancelled,1=Pending , 2= confirmed'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `books`
---
+
+-- inserting values for table 'books'
 
 INSERT INTO `books` (`id`, `car_id`, `pickup_datetime`, `dropoff_datetime`, `car_registration_no`, `car_plate_no`, `name`, `email`, `contact`, `address`, `status`) VALUES
 (1, 5, '2020-10-27 16:00:00', '2020-10-28 18:00:00', '123456789', 'GBN-623', 'John Smith', 'jsmith@sample.com', '+6948 8542 623', 'Sample', 2);
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `borrowed_cars`
---
+
 
 CREATE TABLE `borrowed_cars` (
   `id` int(30) NOT NULL,
@@ -63,7 +38,7 @@ CREATE TABLE `borrowed_cars` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `borrowed_cars`
+-- inserting values for table `borrowed_cars`
 --
 
 INSERT INTO `borrowed_cars` (`id`, `booked_id`, `car_id`, `status`) VALUES
@@ -89,7 +64,7 @@ CREATE TABLE `cars` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `cars`
+-- inserting values for table `cars`
 --
 
 INSERT INTO `cars` (`id`, `model`, `brand`, `transmission_id`, `category_id`, `engine_id`, `description`, `price`, `qty`, `img_path`) VALUES
@@ -110,7 +85,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `categories`
+-- inserting values for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`) VALUES
@@ -133,7 +108,7 @@ CREATE TABLE `engine_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `engine_types`
+-- inserting values for table `engine_types`
 --
 
 INSERT INTO `engine_types` (`id`, `name`) VALUES
@@ -157,7 +132,7 @@ CREATE TABLE `system_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `system_settings`
+-- inserting values for table `system_settings`
 --
 
 INSERT INTO `system_settings` (`id`, `name`, `email`, `contact`, `cover_img`, `about_content`) VALUES
@@ -176,7 +151,7 @@ CREATE TABLE `transmission_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `transmission_types`
+-- inserting values for table `transmission_types`
 --
 
 INSERT INTO `transmission_types` (`id`, `name`, `description`) VALUES
@@ -200,14 +175,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- inserting values for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `type`) VALUES
 (1, 'Administrator', 'admin', '0192023a7bbd73250516f069df18b500', 1);
 
 --
--- Indexes for dumped tables
+-- Indexes for tables
 --
 
 --
@@ -259,7 +234,7 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT for tables
 --
 
 --
@@ -310,7 +285,3 @@ ALTER TABLE `transmission_types`
 ALTER TABLE `users`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
